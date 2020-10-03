@@ -1,4 +1,4 @@
-package model;
+package org.sloubi.model;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -36,7 +36,6 @@ public class King extends Piece {
 
     @Override
     public String toString() {
-//        return color == Color.White ? "K" : "k";
         return "♚";
     }
 

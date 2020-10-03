@@ -1,4 +1,4 @@
-package view;
+package org.sloubi.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,10 +8,7 @@ public class MainFrame extends JFrame {
         setLookAndFeel();
 
         setTitle("Chess");
-//        setSize(500, 356);
-        setSize(500, 50);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
@@ -20,18 +17,14 @@ public class MainFrame extends JFrame {
 
         setContentPane(mainPanel);
         setVisible(true);
+        pack();
+        setLocationRelativeTo(null);
     }
 
     private void setLookAndFeel() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
     }

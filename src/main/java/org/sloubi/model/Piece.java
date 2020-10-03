@@ -1,9 +1,9 @@
-package model;
+package org.sloubi.model;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public abstract class Piece {
@@ -17,6 +17,8 @@ public abstract class Piece {
         public Color toggle() {
             return this == White ? Black : White;
         }
+
+        public String translate() { return this == White ? "Blanc" : "Noir";  }
     }
 
     public Piece(Color color) {
@@ -88,7 +90,8 @@ public abstract class Piece {
         Image img = null;
         try {
             String filename = color.toString().toLowerCase().charAt(0) + "-" + getClass().getSimpleName().toLowerCase();
-            img = ImageIO.read(new File("images/" + filename + ".png"));
+            InputStream is = Piece.class.getResourceAsStream("/images/" + filename + ".png");
+            img = ImageIO.read(is);
         } catch (IOException e) {
             e.printStackTrace();
         }

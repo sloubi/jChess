@@ -1,4 +1,4 @@
-package model;
+package org.sloubi.model;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,6 @@ public class Pawn extends Piece {
 
     @Override
     public String toString() {
-//        return color == Color.White ? "P" : "p";
         return "♟";
     }
 }

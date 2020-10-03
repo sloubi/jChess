@@ -1,4 +1,4 @@
-package model;
+package org.sloubi.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

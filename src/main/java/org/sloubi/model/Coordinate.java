@@ -1,9 +1,10 @@
-package model;
+package org.sloubi.model;
 
 // file : horizontal : a to h
 // row : vertical 1 to 8
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class Coordinate {
     private final char file;

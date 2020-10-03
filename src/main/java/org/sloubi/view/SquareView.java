@@ -1,16 +1,16 @@
-package view;
+package org.sloubi.view;
 
-import model.Square;
+import org.sloubi.model.Square;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 public class SquareView extends Rectangle2D.Double {
 
-    private static final int squareWidth = 40;
-    private static final int squareHeight = 40;
-    private final Color dark = new Color(181, 136, 99);//new Color(80, 80, 80);
-    private final Color light = new Color(240, 217, 181);//new Color(100, 100, 100);
+    public static final int squareWidth = 80;
+    public static final int squareHeight = 80;
+    private final Color dark = new Color(181, 136, 99);
+    private final Color light = new Color(240, 217, 181);
     private final Square square;
 
     public SquareView(Square square) {

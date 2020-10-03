@@ -1,9 +1,9 @@
-package model;
+package org.sloubi.model;
 
 import java.util.ArrayList;
 
-public class Rook extends Piece {
-    public Rook(Color color) {
+public class Queen extends Piece {
+    public Queen(Color color) {
         super(color);
     }
 
@@ -11,21 +11,21 @@ public class Rook extends Piece {
     public ArrayList<Coordinate> getPossibleCoordinates() {
         ArrayList<Coordinate> destinations = new ArrayList<>();
 
-        // On récupère les cases des lignes verticales et horizontales
-        for (Coordinate.Direction direction : Coordinate.Direction.lines()) {
+        // On récupère les cases des diagonales, horizontale, verticale
+        for (Coordinate.Direction direction : Coordinate.Direction.values()) {
             for (Coordinate c : coordinate.getByDirection(direction)) {
                 Piece piece = Board.getInstance().getPiece(c);
 
-                // Si la case est vide, la tour peut s'y déplacer
+                // Si la case est vide, la reine peut s'y déplacer
                 if (piece == null) {
                     destinations.add(c);
                 }
-                // Si la case contient une pièce adverse, la tour peut s'y déplacer mais ne va pas plus loin
+                // Si la case contient une pièce adverse, la reine peut s'y déplacer mais ne va pas plus loin
                 else if (piece.getColor() != color) {
                     destinations.add(c);
                     break;
                 }
-                // Si la case contient une pièce du joueur, la tour ne peut pas aller plus loin
+                // Si la case contient une pièce du joueur, la reine ne peut pas aller plus loin
                 else {
                     break;
                 }
@@ -37,7 +37,6 @@ public class Rook extends Piece {
 
     @Override
     public String toString() {
-//        return color == Color.White ? "R" : "r";
-        return "♜";
+        return "♛";
     }
 }

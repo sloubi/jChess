@@ -1,4 +1,4 @@
-package model;
+package org.sloubi.model;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,6 @@ public class Bishop extends Piece {
 
     @Override
     public String toString() {
-//        return color == Color.White ? "B" : "b";
         return "♝";
     }
 

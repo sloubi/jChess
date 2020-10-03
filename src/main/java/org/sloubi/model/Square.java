@@ -1,4 +1,4 @@
-package model;
+package org.sloubi.model;
 
 public class Square {
     private final Color color;

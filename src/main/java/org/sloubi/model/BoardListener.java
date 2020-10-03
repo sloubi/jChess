@@ -1,4 +1,4 @@
-package model;
+package org.sloubi.model;
 
 public interface BoardListener {
     void playerChanged(Piece.Color color);

@@ -1,8 +1,8 @@
-package view;
+package org.sloubi.view;
 
-import model.Board;
-import model.Coordinate;
-import model.Piece;
+import org.sloubi.model.Board;
+import org.sloubi.model.Coordinate;
+import org.sloubi.model.Piece;
 
 public class BoardAscii {
 

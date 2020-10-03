@@ -1,6 +1,6 @@
-package view;
+package org.sloubi.view;
 
-import model.*;
+import org.sloubi.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +13,7 @@ public class BoardPanel extends JPanel implements MouseListener, BoardListener {
     public BoardPanel() {
         addMouseListener(this);
         Board.getInstance().addListener(this);
+        setPreferredSize(new Dimension(8 * SquareView.squareWidth, 8 * SquareView.squareHeight));
     }
 
     public void paintComponent(Graphics g) {
@@ -35,14 +36,21 @@ public class BoardPanel extends JPanel implements MouseListener, BoardListener {
                 // Piece
                 Piece piece = Board.getInstance().getPiece(c);
                 if (piece != null) {
-                    g2.drawImage(piece.getImage(), (int)rect.getX() + 2, (int)rect.getY() + 2, 36, 36, this);
+                    g2.drawImage(piece.getImage(), (int) rect.getX() + 2, (int) rect.getY() + 2, 76, 76, this);
                 }
             }
         }
 
-        // Affichage des cases possibles
         Coordinate selection = Board.getInstance().getSelection();
         if (selection != null) {
+            // Affichage de la case sélectionnée
+            g2.setColor(new Color(255, 247, 102, 70));
+            g2.fillRect(SquareView.file2X(selection.getFile()),
+                    SquareView.row2Y(selection.getRow()),
+                    SquareView.squareWidth,
+                    SquareView.squareHeight);
+
+            // Affichage des cases possibles
             Piece piece = Board.getInstance().getPiece(selection);
             showPossibleSquares(piece, g2);
         }
@@ -55,7 +63,7 @@ public class BoardPanel extends JPanel implements MouseListener, BoardListener {
 
         ArrayList<Coordinate> possibleSquares = piece.getPossibleMoves();
         for (Coordinate c : possibleSquares) {
-            g2.fillOval(SquareView.file2X(c.getFile()) + 10, SquareView.row2Y(c.getRow()) + 10, 20, 20);
+            g2.fillOval(SquareView.file2X(c.getFile()) + 20, SquareView.row2Y(c.getRow()) + 20, 40, 40);
         }
     }
 
